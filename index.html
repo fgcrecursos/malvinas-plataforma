@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malvinas – Valores para la Juventud Mendocina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <style>
+    /* ── RESET & BASE ────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f0e0c0;
+      color: #2a1a0a;
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── VARIABLES ───────────────────────────────────── */
+    :root {
+      --azul:      #4a8ec2;
+      --azul-claro:#74aadb;
+      --azul-oscuro:#1b3d6e;
+      --dorado:    #c8983a;
+      --pergamino: #f0e0c0;
+      --crema:     #fdf5e6;
+      --texto:     #2a1a0a;
+      --borde:     #c8a878;
+    }
+
+    /* ── TIPOGRAFÍA ──────────────────────────────────── */
+    h1, h2, h3, h4 { font-family: 'Lora', Georgia, serif; line-height: 1.25; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
+    h4 { font-size: 1.1rem; }
+    p  { margin-bottom: 1rem; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    #navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--azul-oscuro);
+      box-shadow: 0 2px 8px rgba(0,0,0,.4);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .6rem 1.5rem;
+    }
+    .nav-brand {
+      font-family: 'Lora', serif; color: #fff;
+      font-size: 1rem; font-weight: 700;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .nav-links {
+      display: flex; gap: .15rem; list-style: none; flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      font-size: .8rem; font-weight: 600; letter-spacing: .03em;
+      padding: .45rem .75rem; border-radius: 4px;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--azul-claro); color: #fff;
+    }
+    #menu-toggle { display: none; cursor: pointer; background: none; border: none; }
+    #menu-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
+
+    /* ── HERO ────────────────────────────────────────── */
+    #inicio {
+      min-height: 100vh; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/bg_parchment.jpg') center/cover no-repeat;
+      filter: brightness(.92);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(27,61,110,.65) 0%, rgba(74,142,194,.25) 60%, transparent 100%);
+    }
+    .hero-terrain {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 160px; overflow: hidden; pointer-events: none;
+    }
+    .hero-terrain img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; opacity: .7; }
+    .hero-content {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      gap: 3rem; padding: 5rem 2rem 10rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .hero-text { flex: 1; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.5); }
+    .hero-text .anio {
+      font-family: 'Open Sans', sans-serif; font-size: 1rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--azul-claro);
+      margin-bottom: .5rem; display: block;
+    }
+    .hero-text h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: #fff; margin-bottom: .5rem; }
+    .hero-text .subtitulo {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.5rem); color: rgba(255,255,255,.9);
+      margin-bottom: 2rem; max-width: 500px;
+    }
+    .hero-text .subtitulo strong { color: var(--azul-claro); font-style: normal; }
+    .btn-primary {
+      display: inline-block; background: var(--dorado); color: #fff;
+      font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: .9rem;
+      letter-spacing: .05em; padding: .8rem 2rem; border-radius: 30px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(200,152,58,.5);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,152,58,.6); }
+    .hero-image { flex: 0 0 320px; }
+    .hero-image img {
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+      transform: rotate(-2deg);
+      transition: transform .4s;
+    }
+    .hero-image img:hover { transform: rotate(0deg) scale(1.03); }
+
+    /* ── SECCIONES GENERALES ─────────────────────────── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-badge {
+      display: inline-block; background: var(--azul); color: #fff;
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: .3rem 1rem; border-radius: 20px;
+      margin-bottom: .8rem;
+    }
+    .section-header h2 { color: var(--azul-oscuro); margin-bottom: .8rem; }
+    .divider {
+      width: 70px; height: 4px; margin: .8rem auto 0;
+      background: linear-gradient(90deg, var(--azul), var(--dorado));
+      border-radius: 2px;
+    }
+
+    /* ── INTRODUCCION ────────────────────────────────── */
+    #introduccion { background: var(--crema); }
+    .intro-grid {
+      display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start;
+    }
+    .intro-preguntas {
+      background: var(--azul-oscuro); color: #fff;
+      border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;
+    }
+    .intro-preguntas p {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 1.2rem; color: var(--azul-claro); margin: 0;
+    }
+    .intro-preguntas p + p { margin-top: .5rem; }
+    .intro-text { font-size: 1.05rem; }
+    .intro-img { position: sticky; top: 100px; }
+    .intro-img img { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .intro-img figcaption {
+      text-align: center; font-size: .8rem; color: #6b5740;
+      margin-top: .6rem; font-style: italic;
+    }
+
+    /* ── TEMA 1 ──────────────────────────────────────── */
+    #tema1 { background: var(--pergamino); }
+    .valores-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .valores-col { }
+    .valores-col-title {
+      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700;
+      text-align: center; padding: .7rem 1.5rem; border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .moral .valores-col-title  { background: #8b4513; color: #fff; }
+    .civico .valores-col-title { background: var(--azul-oscuro); color: #fff; }
+    .valor-card {
+      background: var(--crema); border: 1px solid var(--borde);
+      border-radius: 12px; padding: 1.4rem 1.5rem; margin-bottom: 1.2rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .valor-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .valor-icon { font-size: 2rem; margin-bottom: .6rem; }
+    .valor-card h4 { color: var(--azul-oscuro); margin-bottom: .4rem; font-size: 1rem; }
+    .valor-def { font-size: .9rem; margin-bottom: .6rem; }
+    .valor-ejemplo {
+      font-size: .85rem; color: #5a3e1b;
+      background: rgba(200,152,58,.12); border-left: 3px solid var(--dorado);
+      padding: .5rem .8rem; border-radius: 0 6px 6px 0; margin: 0;
+    }
+    .valor-ejemplo strong { color: #7a4e1a; }
+    .tema1-imagen { margin-top: 3rem; text-align: center; }
+    .tema1-imagen img { max-width: 420px; margin: 0 auto; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,.25); }
+    .tema1-imagen figcaption { font-style: italic; font-size: .85rem; color: #6b5740; margin-top: .6rem; }
+
+    /* ── TEMA 2 ──────────────────────────────────────── */
+    #tema2 { background: var(--crema); }
+    .tema2-intro { max-width: 720px; margin: 0 auto 3rem; text-align: center; font-size: 1.05rem; }
+    .ejes-tabs {
+      display: flex; gap: 1rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap;
+    }
+    .eje-tab {
+      cursor: pointer; padding: .75rem 1.8rem; border-radius: 30px;
+      font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: .9rem;
+      border: 2px solid var(--azul); color: var(--azul);
+      background: transparent; transition: all .25s;
+    }
+    .eje-tab:hover { background: var(--azul-claro); border-color: var(--azul-claro); color: #fff; }
+    .eje-tab.activo { background: var(--azul-oscuro); border-color: var(--azul-oscuro); color: #fff; }
+    .eje-panel { display: none; animation: fadeIn .35s ease; }
+    .eje-panel.activo { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .eje-header {
+      display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2.5rem;
+      background: var(--azul-oscuro); color: #fff;
+      border-radius: 14px; padding: 1.5rem 2rem;
+    }
+    .eje-num {
+      font-family: 'Lora', serif; font-size: 3rem; font-weight: 700;
+      color: var(--azul-claro); line-height: 1; flex-shrink: 0;
+    }
+    .eje-header h3 { color: #fff; margin-bottom: .4rem; }
+    .eje-header p  { color: rgba(255,255,255,.85); margin: 0; font-size: .95rem; }
+    .actividades-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .actividad-card {
+      background: #fff; border: 1px solid var(--borde);
+      border-radius: 14px; overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .actividad-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.13); }
+    .actividad-num {
+      background: var(--azul); color: #fff;
+      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700;
+      padding: .6rem 1.2rem; display: flex; align-items: center; gap: .6rem;
+    }
+    .actividad-num i { font-size: 1.05rem; }
+    .actividad-body { padding: 1.2rem 1.4rem; }
+    .actividad-body h4 { color: var(--azul-oscuro); margin-bottom: .7rem; }
+    .actividad-body p  { font-size: .9rem; margin-bottom: .8rem; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+    .tag {
+      font-size: .72rem; font-weight: 700; letter-spacing: .05em;
+      padding: .25rem .7rem; border-radius: 20px;
+    }
+    .tag-valor   { background: rgba(74,142,194,.15); color: var(--azul-oscuro); border: 1px solid var(--azul-claro); }
+    .tag-producto{ background: rgba(200,152,58,.15); color: #7a4e1a; border: 1px solid var(--dorado); }
+    .eje-imagen { text-align: center; margin-top: 2.5rem; }
+    .eje-imagen img { max-width: 480px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+    .eje-imagen figcaption { font-style: italic; font-size: .85rem; color: #6b5740; margin-top: .6rem; }
+
+    /* ── TEMA 3 ──────────────────────────────────────── */
+    #tema3 { background: var(--pergamino); }
+    .tema3-grid { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start; }
+    .objetivos-list { list-style: none; padding: 0; }
+    .objetivo-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      background: var(--crema); border: 1px solid var(--borde);
+      border-radius: 12px; padding: 1.4rem; margin-bottom: 1.2rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .objetivo-item:hover { transform: translateX(4px); box-shadow: 4px 4px 20px rgba(0,0,0,.1); }
+    .objetivo-icon { font-size: 2.2rem; flex-shrink: 0; margin-top: .1rem; }
+    .objetivo-item h4 { color: var(--azul-oscuro); margin-bottom: .4rem; }
+    .objetivo-item p  { font-size: .9rem; margin: 0; }
+    .tema3-img img { border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,.25); }
+    .tema3-img figcaption { text-align: center; font-style: italic; font-size: .85rem; color: #6b5740; margin-top: .6rem; }
+
+    /* ── CONCLUSION ──────────────────────────────────── */
+    #conclusion {
+      background: var(--azul-oscuro);
+      color: #fff; text-align: center;
+    }
+    .conclusion-content {
+      position: relative; z-index: 1;
+      max-width: 800px; margin: 0 auto;
+    }
+    .conclusion-content .section-badge { background: var(--dorado); }
+    .conclusion-content h2 { color: #fff; margin-bottom: 1.5rem; }
+    .conclusion-content .divider { background: linear-gradient(90deg, var(--azul-claro), var(--dorado)); }
+    .conclusion-content p { color: rgba(255,255,255,.9); font-size: 1.05rem; max-width: 680px; margin: 0 auto 1.2rem; }
+    blockquote.faro {
+      border: 2px solid var(--azul-claro); border-radius: 12px;
+      padding: 1.5rem 2rem; margin: 2rem auto; max-width: 640px;
+      font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem;
+      color: var(--azul-claro);
+      background: rgba(74,142,194,.08);
+    }
+
+    /* ── CRONOGRAMA ──────────────────────────────────── */
+    #cronograma { background: var(--crema); }
+
+    /* — Timeline 1: flujo de 4 pasos — */
+    .ct-section {
+      background: var(--crema); border-radius: 16px;
+      padding: 1.8rem 2rem 2.2rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,.1);
+      margin-bottom: 3rem;
+    }
+    .ct-sec-title { font-family: 'Lora', serif; text-align: center; font-size: 1.6rem; color: var(--azul-oscuro); margin-bottom: .15rem; }
+    .ct-sec-sub   { text-align: center; font-style: italic; color: #6b5740; margin-bottom: 1.8rem; font-size: .95rem; }
+    .ct-flow      { display: flex; align-items: stretch; }
+    .ct-step {
+      flex: 1; background: white; border-radius: 12px;
+      padding: 1.2rem .9rem; border-top: 5px solid;
+      box-shadow: 0 4px 14px rgba(0,0,0,.09);
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .ct-step:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,.13); }
+    .ct-step-num {
+      width: 36px; height: 36px; border-radius: 50%; color: white;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: .55rem; flex-shrink: 0;
+    }
+    .ct-step-label { font-family: 'Lora', serif; font-weight: 700; font-size: .93rem; color: var(--azul-oscuro); margin-bottom: .35rem; line-height: 1.2; }
+    .ct-step-dates { font-size: .95rem; font-weight: 700; color: #5a3e1b; margin-bottom: .7rem; }
+    .ct-step-dates .arr { color: var(--azul); }
+    .ct-step-list { list-style: none; padding: 0; margin: 0; text-align: left; width: 100%; }
+    .ct-step-list li { font-size: .82rem; padding: .18rem 0 .18rem 1.1rem; position: relative; color: #3a2810; }
+    .ct-step-list li::before { content: '▸'; position: absolute; left: 0; font-size: .7rem; top: .25rem; }
+    .ct-arrow { display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #bbb; padding: 0 .35rem; flex-shrink: 0; align-self: center; }
+    .ct-step.f1 { border-top-color: #9b59b6; }
+    .ct-step.f1 .ct-step-num { background: #9b59b6; }
+    .ct-step.f2 { border-top-color: #27ae60; }
+    .ct-step.f2 .ct-step-num { background: #27ae60; }
+    .ct-step.f3 { border-top-color: #f39c12; }
+    .ct-step.f3 .ct-step-num { background: #f39c12; }
+    .ct-step.f4 { border-top-color: #e74c3c; }
+    .ct-step.f4 .ct-step-num { background: #e74c3c; }
+
+    /* — Timeline 2: Gantt / hitos — */
+    .lt-wrapper { background: white; border-radius: 16px; box-shadow: 0 8px 26px rgba(0,0,0,.1); overflow: hidden; margin-top: 3rem; }
+    .lt-head { background: var(--azul-oscuro); color: white; text-align: center; padding: 1.1rem 1.5rem; }
+    .lt-head h3 { color: white; margin-bottom: .15rem; font-size: 1.3rem; }
+    .lt-head p  { color: rgba(255,255,255,.75); font-style: italic; font-size: .88rem; margin: 0; }
+    .lt-periodo {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .75rem 1.4rem; background: #f0f4f8; border-bottom: 2px solid #ebebeb;
+    }
+    .lt-p-ini, .lt-p-fin { font-size: .88rem; font-weight: 700; color: var(--azul-oscuro); white-space: nowrap; }
+    .lt-p-ini i { color: #9b59b6; margin-right: .35rem; }
+    .lt-p-fin i { color: #e74c3c; margin-left: .35rem; }
+    .lt-p-linea { flex: 1; height: 3px; background: linear-gradient(90deg, #9b59b6, #27ae60, #f39c12, #e74c3c); border-radius: 2px; }
+    .lt-spans {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 3px; padding: 5px; background: #f5f5f5; border-bottom: 2px solid #ebebeb;
+    }
+    .lt-span {
+      border-radius: 6px; padding: .42rem .5rem;
+      text-align: center; font-size: .74rem; font-weight: 700;
+      color: white; line-height: 1.3;
+    }
+    .lt-span small { font-weight: 400; opacity: .9; font-size: .68rem; display: block; }
+    .lt-span.s1 { background: #9b59b6; }
+    .lt-span.s2 { background: #27ae60; }
+    .lt-span.s3 { background: #f39c12; }
+    .lt-span.s4 { background: #e74c3c; }
+    .lt-modulos { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .lt-mod { padding: 1.1rem 1rem; border-right: 1px solid #ebebeb; }
+    .lt-mod:last-child { border-right: none; }
+    .lt-mod-tag {
+      display: inline-block; font-size: .65rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 20px; color: white; margin-bottom: .45rem;
+    }
+    .lt-mod-mes { display: block; font-size: .78rem; font-weight: 700; color: #5a3e1b; margin-bottom: .45rem; }
+    .lt-mod h4  { font-size: .88rem; color: var(--azul-oscuro); margin-bottom: .5rem; }
+    .lt-mod ul  { list-style: none; padding: 0; margin: 0 0 .7rem; }
+    .lt-mod ul li { font-size: .79rem; padding: .18rem 0 .18rem 1rem; position: relative; }
+    .lt-mod ul li::before { content: '▸'; position: absolute; left: 0; font-size: .65rem; top: .25rem; }
+    .lt-prod { font-size: .76rem; background: #f7f7f7; padding: .5rem .65rem; border-radius: 6px; border-left: 3px solid; line-height: 1.45; }
+    .lt-mod.m1 .lt-mod-tag { background: #9b59b6; }
+    .lt-mod.m1 .lt-prod    { border-left-color: #9b59b6; }
+    .lt-mod.m2 .lt-mod-tag { background: #27ae60; }
+    .lt-mod.m2 .lt-prod    { border-left-color: #27ae60; }
+    .lt-mod.m3 .lt-mod-tag { background: #f39c12; }
+    .lt-mod.m3 .lt-prod    { border-left-color: #f39c12; }
+    .lt-mod.m4 .lt-mod-tag { background: #e74c3c; }
+    .lt-mod.m4 .lt-prod    { border-left-color: #e74c3c; }
+
+    @media (max-width: 768px) {
+      .ct-flow    { flex-direction: column; gap: .8rem; }
+      .ct-arrow   { transform: rotate(90deg); padding: 0; align-self: center; }
+      .lt-modulos { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .lt-modulos { grid-template-columns: 1fr; }
+      .lt-spans   { grid-template-columns: 1fr; }
+      .lt-spans .lt-span { grid-column: 1 !important; }
+      .lt-ruler   { display: none; }
+    }
+
+    /* ── BIBLIOGRAFIA ────────────────────────────────── */
+    #bibliografia { background: var(--pergamino); }
+    .biblio-grid { display: grid; grid-template-columns: 1fr 240px; gap: 3rem; align-items: start; }
+    .biblio-list { list-style: none; padding: 0; }
+    .biblio-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 1.2rem; margin-bottom: .8rem;
+      background: var(--crema); border-radius: 10px; border: 1px solid var(--borde);
+      transition: transform .2s;
+    }
+    .biblio-item:hover { transform: translateX(4px); }
+    .biblio-num {
+      background: var(--azul-oscuro); color: #fff;
+      font-family: 'Lora', serif; font-weight: 700; font-size: .9rem;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .1rem;
+    }
+    .biblio-item p { font-size: .9rem; margin: 0; }
+    .biblio-item em { color: var(--azul-oscuro); font-style: italic; }
+    .biblio-img img { border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.2); }
+    .biblio-img figcaption { text-align: center; font-style: italic; font-size: .8rem; color: #6b5740; margin-top: .6rem; }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--azul-oscuro); color: rgba(255,255,255,.7);
+      text-align: center; padding: 2rem 1.5rem;
+      font-size: .85rem;
+    }
+    footer strong { color: #fff; }
+    footer .flag { font-size: 1.4rem; margin-bottom: .4rem; }
+    footer .flag i { color: var(--azul-claro); }
+
+    /* ── BTN SCROLL TOP ──────────────────────────────── */
+    #back-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--azul-oscuro); color: #fff;
+      width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+      font-size: 1.2rem; box-shadow: 0 4px 14px rgba(0,0,0,.3);
+      display: none; align-items: center; justify-content: center;
+      transition: background .2s, transform .2s; z-index: 900;
+    }
+    #back-top:hover { background: var(--azul); transform: translateY(-2px); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      #menu-toggle { display: block; }
+      .nav-links {
+        display: none; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--azul-oscuro); padding: 1rem;
+      }
+      .nav-links.open { display: flex; }
+      #navbar { position: relative; }
+      .nav-inner { position: relative; }
+      .hero-content { flex-direction: column; text-align: center; padding-bottom: 12rem; }
+      .hero-image { flex: none; width: 220px; margin: 0 auto; }
+      .intro-grid, .tema3-grid, .biblio-grid { grid-template-columns: 1fr; }
+      .intro-img { position: static; }
+      .valores-grid { grid-template-columns: 1fr; }
+      .eje-header { flex-direction: column; }
+      .eje-num { font-size: 2rem; }
+      section { padding: 3rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img src="images/islas_mapa.jpg" alt="Mapa Malvinas" />
+      Malvinas 2026
+    </div>
+    <button id="menu-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#introduccion">Introducción</a></li>
+      <li><a href="#tema1">Los Valores</a></li>
+      <li><a href="#tema2">Memoria en Acción</a></li>
+      <li><a href="#tema3">El Gran Encuentro</a></li>
+      <li><a href="#conclusion">Conclusión</a></li>
+      <li><a href="#cronograma">Cronograma</a></li>
+      <li><a href="#bibliografia">Bibliografía</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<section id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-terrain"><img src="images/terrain.png" alt="" /></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <span class="anio">✦ Ciclo Lectivo 2026 ✦</span>
+      <h1>Malvinas</h1>
+      <p class="subtitulo">
+        Valores para la <strong>Juventud Mendocina</strong><br/>
+        <em>Legado de Malvinas, Valores en Acción</em>
+      </p>
+      <a href="#introduccion" class="btn-primary">Comenzar la Guía →</a>
+    </div>
+    <div class="hero-image">
+      <img src="images/cover_island.jpg" alt="Las Malvinas representadas como un libro flotante sobre el mar" />
+    </div>
+  </div>
+</section>
+
+<!-- ══ INTRODUCCION ════════════════════════════════════ -->
+<section id="introduccion">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Guía de Actividades</span>
+      <h2>Legado de Malvinas, Valores en Acción</h2>
+      <p style="max-width:680px;margin:.8rem auto 0;font-size:1rem;color:#5a3e1b;">
+        De la Historia a Tu Realidad
+      </p>
+      <div class="divider"></div>
+    </div>
+    <div class="intro-grid">
+      <div>
+        <div class="intro-preguntas">
+          <p>¿Qué significa ser fuerte de verdad?</p>
+          <p>¿Qué harías por alguien a quien no conoces?</p>
+        </div>
+        <div class="intro-text">
+          <p>
+            Esta guía no es un simple viaje al pasado; es una expedición para descubrir
+            <strong>herramientas de vida</strong> que te servirán hoy. Aquí exploraremos los
+            testimonios de personas de tu propia comunidad, los veteranos de Malvinas de
+            Las Heras, para transformar su recuerdo en un <strong>faro de ética y compromiso</strong>
+            que ilumine tu camino.
+          </p>
+          <p>
+            El objetivo es transformar sus historias de coraje y compañerismo en
+            <strong>lecciones prácticas</strong> que puedas aplicar en tu día a día. Esta guía es un
+            mapa para que, usando las lecciones de los veteranos, construyas tu
+            propio faro ético.
+          </p>
+          <p>
+            Prepárate para descubrir que la historia no está solo en los libros, sino en las
+            <strong>voces de nuestros vecinos</strong> y, pronto, en tus propias acciones.
+          </p>
+        </div>
+      </div>
+      <figure class="intro-img">
+        <img src="images/intro_faro.jpg" alt="Faro y pingüinos en las Islas Malvinas" />
+        <figcaption>Las Islas Malvinas: un faro en nuestra memoria colectiva.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEMA 1 ═══════════════════════════════════════════ -->
+<section id="tema1">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Tema 1</span>
+      <h2>Los Valores Forjados en Malvinas: Nuestro Legado</h2>
+      <div class="divider"></div>
+    </div>
+    <p style="max-width:750px;margin:0 auto 2.5rem;text-align:center;font-size:1rem;">
+      Los testimonios de los veteranos nos enseñan un conjunto de valores fundamentales
+      forjados en las condiciones más difíciles. Estos principios no son solo recuerdos de
+      guerra, sino <strong>guías para construir una mejor comunidad</strong>. Se dividen en dos grandes
+      grupos: los que nos definen como personas y los que nos comprometen como ciudadanos.
+    </p>
+
+    <div class="valores-grid">
+      <!-- Columna moral -->
+      <div class="valores-col moral">
+        <div class="valores-col-title">⚖️ Valor Moral (Humano)</div>
+
+        <div class="valor-card">
+          <div class="valor-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h4>Solidaridad y Compañerismo</h4>
+          <p class="valor-def">
+            <strong>Definición:</strong> Apoyo incondicional al otro para superar juntos las adversidades.
+          </p>
+          <p class="valor-ejemplo">
+            <strong>Ejemplo hoy:</strong> Ayudar a un compañero con una materia, así como en el
+            frío de las islas, la vida misma dependía del apoyo incondicional del otro.
+          </p>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+          <h4>Resiliencia y Temple</h4>
+          <p class="valor-def">
+            <strong>Definición:</strong> Fortaleza para levantarse después de una caída,
+            aprendiendo de la dificultad sin rendirse.
+          </p>
+          <p class="valor-ejemplo">
+            <strong>Ejemplo hoy:</strong> No desanimarse ante una mala nota, aprendiendo que,
+            incluso después del trauma o el fracaso, es posible reconstruirse y encontrar
+            un nuevo propósito, como lo hicieron ellos.
+          </p>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-icon"><i class="fa-solid fa-shield"></i></div>
+          <h4>Coraje y Sacrificio</h4>
+          <p class="valor-def">
+            <strong>Definición:</strong> Actuar correctamente y cumplir con el deber por un bien mayor,
+            incluso cuando sentimos miedo o nos cuesta un esfuerzo personal.
+          </p>
+          <p class="valor-ejemplo">
+            <strong>Ejemplo hoy:</strong> Decir la verdad aunque sea difícil o dedicar tiempo a
+            una causa comunitaria en lugar de solo al ocio personal.
+          </p>
+        </div>
+      </div>
+
+      <!-- Columna cívica -->
+      <div class="valores-col civico">
+        <div class="valores-col-title">🏛️ Valor Cívico (Ciudadano)</div>
+
+        <div class="valor-card">
+          <div class="valor-icon"><i class="fa-solid fa-flag"></i></div>
+          <h4>Amor y Respeto a la Patria</h4>
+          <p class="valor-def">
+            <strong>Definición:</strong> Compromiso con nuestra identidad, nuestra historia
+            y la cultura que compartimos.
+          </p>
+          <p class="valor-ejemplo">
+            <strong>Ejemplo hoy:</strong> Conocer y cuidar los espacios públicos de nuestro
+            departamento, como plazas y monumentos.
+          </p>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+          <h4>Deber y Responsabilidad</h4>
+          <p class="valor-def">
+            <strong>Definición:</strong> Cumplir con nuestras obligaciones, sabiendo que nuestras
+            acciones contribuyen al bienestar de todos.
+          </p>
+          <p class="valor-ejemplo">
+            <strong>Ejemplo hoy:</strong> Participar activamente en los trabajos en grupo,
+            cumpliendo con la parte asignada para no perjudicar al equipo.
+          </p>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h4>Memoria, Verdad y Justicia</h4>
+          <p class="valor-def">
+            <strong>Definición:</strong> Comprender nuestro pasado para no repetir errores y
+            construir un futuro basado en la paz y el respeto.
+          </p>
+          <p class="valor-ejemplo">
+            <strong>Ejemplo hoy:</strong> Investigar y debatir sobre la historia de nuestro país
+            con una mente abierta, buscando siempre entender diferentes perspectivas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="tema1-imagen">
+      <img src="images/tema1_pintura.jpg" alt="Pintura artística que representa las Islas Malvinas con la bandera argentina" />
+      <figcaption>Obra que une la geografía de Malvinas con la identidad y el alma de la nación argentina.</figcaption>
+    </figure>
+
+    <p style="text-align:center;margin-top:2.5rem;font-family:'Lora',serif;font-style:italic;color:#5a3e1b;font-size:1.05rem;">
+      Ahora que conocemos el significado de estos valores, es momento de explorarlos,
+      expresarlos y ponerlos en práctica en nuestro entorno.
+    </p>
+  </div>
+</section>
+
+<!-- ══ TEMA 2 ═══════════════════════════════════════════ -->
+<section id="tema2">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Tema 2</span>
+      <h2>Transformar la Memoria en Acción</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="tema2-intro">
+      <p>
+        Aquí comienza tu misión. El aprendizaje pasivo termina y te convertís en
+        protagonista, transformando la memoria en acción a través de
+        <strong>tres ejes progresivos: Analizar, Crear y Actuar.</strong>
+      </p>
+    </div>
+
+    <!-- TABS -->
+    <div class="ejes-tabs">
+      <button class="eje-tab activo" onclick="mostrarEje(1, this)">🔍 Eje 1: Analizar y Reflexionar</button>
+      <button class="eje-tab"        onclick="mostrarEje(2, this)">🎨 Eje 2: Crear y Expresar</button>
+      <button class="eje-tab"        onclick="mostrarEje(3, this)">🌱 Eje 3: Actuar en Comunidad</button>
+    </div>
+
+    <!-- EJE 1 -->
+    <div class="eje-panel activo" id="eje1">
+      <div class="eje-header">
+        <div class="eje-num">1</div>
+        <div>
+          <h3>Analizar y Reflexionar</h3>
+          <p>
+            Antes de actuar, debemos aprender a escuchar. Aquí nos convertiremos en
+            "custodios de la memoria", tal como los veteranos son custodios de la verdad,
+            para entender la fuerza que se esconde en sus historias. El desafío es
+            <strong>descifrar el significado profundo de sus acciones.</strong>
+          </p>
+        </div>
+      </div>
+      <div class="actividades-grid">
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-map"></i> Actividad 1</div>
+          <div class="actividad-body">
+            <h4>Mapa de la Emoción</h4>
+            <p>
+              Analizarán un testimonio audiovisual de un veterano. Deberán dividir el
+              relato en momentos clave y, para cada uno, identificar el valor que se
+              manifiesta y la emoción que lo acompaña. Luego debatirán en grupo cómo
+              la emoción influyó en la acción y en la consolidación del valor.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Coraje</span>
+              <span class="tag tag-valor">Resiliencia</span>
+              <span class="tag tag-valor">Liderazgo</span>
+              <span class="tag tag-producto">📊 Gráfico o tabla de análisis</span>
+            </div>
+          </div>
+        </div>
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-scale-balanced"></i> Actividad 2</div>
+          <div class="actividad-body">
+            <h4>Dilemas Éticos Cívicos</h4>
+            <p>
+              Tomarán un problema actual de su comunidad o escuela (por ejemplo, el bullying,
+              el descuido de los espacios públicos) y propondrán una solución concreta
+              aplicando los valores de Solidaridad y Deber Cívico. Esta actividad es un
+              contrapunto directo a la cultura del "sálvese quien pueda".
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Solidaridad</span>
+              <span class="tag tag-valor">Deber</span>
+              <span class="tag tag-valor">Responsabilidad</span>
+              <span class="tag tag-producto">✍️ Debate o ensayo corto</span>
+            </div>
+          </div>
+        </div>
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-dove"></i> Actividad 3</div>
+          <div class="actividad-body">
+            <h4>El Círculo del Respeto</h4>
+            <p>
+              Promoverán la creación de "círculos de diálogo" en el aula para debatir
+              temas importantes sobre la convivencia escolar. Inspirados en la disciplina
+              y el respeto mutuo que eran vitales para la supervivencia en Malvinas,
+              practicarán la escucha activa, la tolerancia a opiniones diferentes y la
+              búsqueda de consensos.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Respeto</span>
+              <span class="tag tag-valor">Tolerancia</span>
+              <span class="tag tag-valor">Disciplina</span>
+              <span class="tag tag-producto">📖 Manual de Convivencia Escolar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="eje-imagen">
+        <img src="images/tema2_historia.jpg" alt="Bocetos históricos de naves de guerra, 1914" />
+        <figcaption>Bocetos históricos de la guerra — los hechos del pasado son el punto de partida para reflexionar.</figcaption>
+      </figure>
+    </div><!-- /eje1 -->
+
+    <!-- EJE 2 -->
+    <div class="eje-panel" id="eje2">
+      <div class="eje-header">
+        <div class="eje-num">2</div>
+        <div>
+          <h3>Crear y Expresar</h3>
+          <p>
+            Ahora es tu oportunidad para apropiarte de estos valores y darles una nueva voz.
+            En este eje, utilizarán su creatividad para traducir las lecciones de los veteranos
+            a los lenguajes y formatos de hoy,
+            <strong>dejando una huella visible en su comunidad.</strong>
+          </p>
+        </div>
+      </div>
+      <div class="actividades-grid">
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-bullhorn"></i> Actividad 1</div>
+          <div class="actividad-body">
+            <h4>Campaña de Valores para Las Heras</h4>
+            <p>
+              Usando frases impactantes o ideas extraídas de los testimonios, diseñarán
+              una campaña de bien público para los jóvenes de Las Heras. Pueden crear
+              afiches para la escuela o videos cortos en formato TikTok/Reel que promuevan
+              la Resiliencia y el Coraje en la vida cotidiana.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Resiliencia</span>
+              <span class="tag tag-valor">Coraje</span>
+              <span class="tag tag-producto">🎨 Material gráfico o audiovisual</span>
+            </div>
+          </div>
+        </div>
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-music"></i> Actividad 2</div>
+          <div class="actividad-body">
+            <h4>Poema "Legado"</h4>
+            <p>
+              Crearán una composición artística (un poema, la letra de una canción, un rap)
+              que capture la esencia de un valor como el Sacrificio o la Unidad. El desafío
+              es usar metáforas que conecten la experiencia de Malvinas (el frío, el mar) con
+              la geografía y la identidad de Mendoza (la montaña, el sol).
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Sacrificio</span>
+              <span class="tag tag-valor">Memoria</span>
+              <span class="tag tag-valor">Unidad</span>
+              <span class="tag tag-producto">🎤 Recital de poesía o muestra musical</span>
+            </div>
+          </div>
+        </div>
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-paintbrush"></i> Actividad 3</div>
+          <div class="actividad-body">
+            <h4>Mural de la Memoria</h4>
+            <p>
+              En equipos, diseñarán un mural para pintar en un lugar visible de la escuela.
+              El mural debe representar los valores del proyecto a través de símbolos que
+              conecten la historia de los veteranos con la identidad de la comunidad de
+              Las Heras, creando un recordatorio visual y permanente de este legado.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Solidaridad</span>
+              <span class="tag tag-valor">Memoria</span>
+              <span class="tag tag-valor">Unidad</span>
+              <span class="tag tag-producto">🏫 Diseño o ejecución del mural</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="eje-imagen">
+        <img src="images/tema2_bandera.jpg" alt="Pintura artística con soldados portando la bandera argentina" />
+        <figcaption>La expresión artística transforma la memoria en un legado vivo para las generaciones futuras.</figcaption>
+      </figure>
+    </div><!-- /eje2 -->
+
+    <!-- EJE 3 -->
+    <div class="eje-panel" id="eje3">
+      <div class="eje-header">
+        <div class="eje-num">3</div>
+        <div>
+          <h3>Actuar en Comunidad</h3>
+          <p>
+            Este es el paso final y el más importante: llevar los valores del papel a la realidad.
+            El objetivo final es que ustedes mismos se conviertan en
+            <strong>agentes de cambio</strong>, generando un impacto positivo y tangible
+            en nuestro entorno inmediato.
+          </p>
+        </div>
+      </div>
+      <div class="actividades-grid">
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-seedling"></i> Actividad 1</div>
+          <div class="actividad-body">
+            <h4>Un Día de Deber Cívico</h4>
+            <p>
+              Organizarán una jornada de servicio comunitario en Las Heras. Puede ser la
+              limpieza de una plaza, colaborar con un merendero local o una campaña de
+              recolección para una causa solidaria. El objetivo es experimentar en primera
+              persona cómo el Deber y la Solidaridad construyen una comunidad más fuerte.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Deber</span>
+              <span class="tag tag-valor">Solidaridad</span>
+              <span class="tag tag-valor">Respeto</span>
+              <span class="tag tag-producto">📸 Jornada documentada con fotos o informe</span>
+            </div>
+          </div>
+        </div>
+        <div class="actividad-card">
+          <div class="actividad-num"><i class="fa-solid fa-microphone"></i> Actividad 2</div>
+          <div class="actividad-body">
+            <h4>Mi Entrevista Imaginaria</h4>
+            <p>
+              Redactarán tres preguntas que le harían a un veterano. El objetivo no es
+              preguntar qué pasó, sino <em>cómo se sintió y qué significó</em>. Busquen
+              la dimensión humana detrás del hecho histórico. Por ejemplo: ¿Cómo lograron
+              mantener el compañerismo en situaciones límite? ¿Qué significaba la bandera
+              argentina en esos momentos de soledad?
+            </p>
+            <div class="tag-group">
+              <span class="tag tag-valor">Identidad Nacional</span>
+              <span class="tag tag-valor">Compañerismo</span>
+              <span class="tag tag-valor">Empatía</span>
+              <span class="tag tag-producto">📝 Tres preguntas redactadas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="eje-imagen">
+        <img src="images/tema3_encuentro.jpg" alt="Soldados en combate, mostrando compañerismo y sacrificio" />
+        <figcaption>"Las viejas promesas que se van… todo está guardado en la memoria, sueño de la vida y de la historia." — León Gieco</figcaption>
+      </figure>
+    </div><!-- /eje3 -->
+
+  </div>
+</section>
+
+<!-- ══ TEMA 3 ═══════════════════════════════════════════ -->
+<section id="tema3">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Tema 3</span>
+      <h2>El Gran Encuentro: Un Diálogo entre Generaciones</h2>
+      <div class="divider"></div>
+    </div>
+    <p style="max-width:730px;margin:0 auto 2.5rem;text-align:center;font-size:1rem;">
+      Este encuentro culmina el ciclo de aprendizaje, pasando de la <em>recepción</em> de información
+      a la <strong>síntesis y aplicación creativa</strong>. No es una simple exposición, sino un
+      <strong>"Gran Encuentro de Retroalimentación"</strong>: un espacio vivo para el diálogo,
+      la empatía y el agradecimiento.
+    </p>
+    <div class="tema3-grid">
+      <ul class="objetivos-list">
+        <li class="objetivo-item">
+          <div class="objetivo-icon"><i class="fa-solid fa-hammer"></i></div>
+          <div>
+            <h4>Ser Creadores, no solo Consumidores</h4>
+            <p>
+              Presentarán sus trabajos más destacados (videos, conclusiones de los debates,
+              diseños del mural) para demostrar cómo han interpretado, internalizado y
+              aplicado los valores. No se trata de repetir la historia, sino de mostrar
+              qué han construido a partir de ella.
+            </p>
+          </div>
+        </li>
+        <li class="objetivo-item">
+          <div class="objetivo-icon"><i class="fa-solid fa-heart"></i></div>
+          <div>
+            <h4>Construir Empatía</h4>
+            <p>
+              Este será un espacio para un diálogo abierto y sincero. Es el momento de
+              construir un puente real entre generaciones, comprendiendo la dimensión
+              humana detrás del uniforme. Podrán hacer las preguntas que redactaron y
+              escuchar nuevas reflexiones de primera mano.
+            </p>
+          </div>
+        </li>
+        <li class="objetivo-item">
+          <div class="objetivo-icon"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <h4>Asegurar el Impacto</h4>
+            <p>
+              Al compartir sus proyectos, le demostrarán a los veteranos que su sacrificio
+              ha trascendido y que su legado tiene un <strong>impacto real en la juventud
+              de Las Heras</strong>. Este evento sella el compromiso de transformar la
+              memoria en una acción cívica que continúa en el tiempo.
+            </p>
+          </div>
+        </li>
+      </ul>
+      <figure class="tema3-img">
+        <img src="images/poster_malvinas.jpg" alt="Poster artístico con el mapa de Malvinas y la bandera argentina" />
+        <figcaption>"Tras su manto de neblinas no las hemos de olvidar. ¡Las Malvinas, Argentinas! Clama el viento y ruge el mar."</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONCLUSION ══════════════════════════════════════ -->
+<section id="conclusion">
+  <div class="conclusion-content container">
+    <div class="section-header">
+      <span class="section-badge">Conclusión</span>
+      <h2>El Legado está en Tus Manos</h2>
+      <div class="divider"></div>
+    </div>
+    <blockquote class="faro">
+      "Los viejos amores que no están, la ilusión de los que perdieron,
+      todas las promesas que se van… Todo está guardado en la memoria,
+      sueño de la vida y de la historia." — <strong>León Gieco</strong>
+    </blockquote>
+    <p>
+      El recuerdo de Malvinas, a través de las voces de nuestros veteranos y de las
+      actividades de esta guía, se transforma en un <strong>faro ético</strong> que puede
+      iluminar nuestras decisiones diarias.
+    </p>
+    <p>
+      Las lecciones de solidaridad, coraje y deber ya no son conceptos lejanos, sino
+      <strong>herramientas que posees</strong> para enfrentar tus propios desafíos.
+    </p>
+    <p>
+      Ahora, el legado está en tus manos. Te invitamos a ser un <strong>ciudadano responsable</strong>,
+      un <strong>compañero solidario</strong> y un <strong>protagonista activo</strong> en la construcción
+      del futuro de tu comunidad, honrando el legado de los veteranos con cada acto de
+      responsabilidad y solidaridad.
+    </p>
+  </div>
+</section>
+
+<!-- ══ CRONOGRAMA ═══════════════════════════════════════ -->
+<section id="cronograma">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Planificación</span>
+      <h2>Línea de Tiempo — Cronograma del Proyecto</h2>
+      <p style="margin:.4rem auto 0;font-style:italic;color:#6b5740;">Ciclo Lectivo 2026</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- ╌╌ TIMELINE 1: Flujo de fases ╌╌ -->
+    <div class="ct-section">
+      <p class="ct-sec-title">Cronograma del Proyecto</p>
+      <p class="ct-sec-sub">— Ciclo Lectivo 2026 —</p>
+      <div class="ct-flow">
+
+        <div class="ct-step f1">
+          <div class="ct-step-num">1</div>
+          <div class="ct-step-label">Contextualización</div>
+          <ul class="ct-step-list">
+            <li>Lanzamiento del Proyecto</li>
+            <li>Sensibilización</li>
+            <li>Mapeo de Emociones</li>
+          </ul>
+        </div>
+
+        <div class="ct-arrow">›</div>
+
+        <div class="ct-step f2">
+          <div class="ct-step-num">2</div>
+          <div class="ct-step-label">Expresión Creativa</div>
+          <ul class="ct-step-list">
+            <li>Campaña de Valores</li>
+            <li>Creaciones Artísticas</li>
+            <li>Diseño del Mural</li>
+          </ul>
+        </div>
+
+        <div class="ct-arrow">›</div>
+
+        <div class="ct-step f3">
+          <div class="ct-step-num">3</div>
+          <div class="ct-step-label">Acción Cívica</div>
+          <ul class="ct-step-list">
+            <li>Servicio Comunitario</li>
+            <li>Talleres de Convivencia</li>
+            <li>Mi Entrevista Imaginaria</li>
+          </ul>
+        </div>
+
+        <div class="ct-arrow">›</div>
+
+        <div class="ct-step f4">
+          <div class="ct-step-num">4</div>
+          <div class="ct-step-label">Encuentro: Legado Vivo</div>
+          <ul class="ct-step-list">
+            <li>Encuentro Departamental</li>
+            <li>Diálogo con Veteranos</li>
+            <li>Presentación de Proyectos</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ╌╌ TIMELINE 2: Hitos detallados por mes ╌╌ -->
+    <div class="lt-wrapper">
+      <div class="lt-head">
+        <h3>Línea Temporal — Hitos del Proyecto</h3>
+        <p>Ciclo Lectivo 2026</p>
+      </div>
+
+      <!-- Período del proyecto -->
+      <div class="lt-periodo">
+        <div class="lt-p-ini"><i class="fa-solid fa-calendar-day"></i> Inicia en <strong>Abril</strong></div>
+        <div class="lt-p-linea"></div>
+        <div class="lt-p-fin">Culmina en <strong>Octubre</strong> <i class="fa-solid fa-flag-checkered"></i></div>
+      </div>
+
+      <!-- Barras de fases (4 columnas iguales) -->
+      <div class="lt-spans">
+        <div class="lt-span s1">Fase 1: Contextualización</div>
+        <div class="lt-span s2">Fase 2: Expresión Creativa</div>
+        <div class="lt-span s3">Fase 3: Acción Cívica</div>
+        <div class="lt-span s4">Fase 4: Encuentro</div>
+      </div>
+
+      <!-- Módulos con pasos -->
+      <div class="lt-modulos">
+
+        <div class="lt-mod m1">
+          <span class="lt-mod-tag">Módulo 1</span>
+          <h4>Análisis y Reflexión</h4>
+          <ul>
+            <li>Lanzamiento y Sensibilización del Proyecto</li>
+            <li>Mapa de la Emoción (testimonios audiovisuales)</li>
+            <li>Dilemas Éticos Cívicos</li>
+            <li>El Círculo del Respeto</li>
+          </ul>
+          <div class="lt-prod"><strong>Productos:</strong> Tabla de análisis del testimonio · Video Corto · Borrador de Manual de Convivencia Escolar</div>
+        </div>
+
+        <div class="lt-mod m2">
+          <span class="lt-mod-tag">Módulo 2</span>
+          <h4>Creación y Expresión</h4>
+          <ul>
+            <li>Campaña de Valores (afiches / reels)</li>
+            <li>Poema o canción "Legado"</li>
+            <li>Diseño del Mural de la Memoria</li>
+          </ul>
+          <div class="lt-prod"><strong>Valores:</strong> Sacrificio · Memoria · Unidad<br><strong>Productos:</strong> Material gráfico/audiovisual · Composición artística · Diseño del mural</div>
+        </div>
+
+        <div class="lt-mod m3">
+          <span class="lt-mod-tag">Módulo 3</span>
+          <h4>Acción Comunitaria</h4>
+          <ul>
+            <li>Jornada de Servicio Comunitario en Las Heras</li>
+            <li>Talleres de Convivencia Escolar</li>
+            <li>Mi Entrevista Imaginaria al Veterano</li>
+          </ul>
+          <div class="lt-prod"><strong>Valores:</strong> Solidaridad · Deber · Respeto<br><strong>Productos:</strong> Jornada documentada · Preguntas redactadas para el encuentro</div>
+        </div>
+
+        <div class="lt-mod m4">
+          <span class="lt-mod-tag">Cierre</span>
+          <h4>Encuentro "Legado Vivo"</h4>
+          <ul>
+            <li>Presentación de trabajos destacados</li>
+            <li>Diálogo con Veteranos de Malvinas</li>
+            <li>Intercambio intergeneracional</li>
+          </ul>
+          <div class="lt-prod"><strong>Cierre:</strong> Encuentro Departamental con Veteranos de Guerra de Malvinas de Las Heras</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BIBLIOGRAFIA ═════════════════════════════════════ -->
+<section id="bibliografia">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Para Seguir Leyendo</span>
+      <h2>Bibliografía</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="biblio-grid">
+      <ul class="biblio-list">
+        <li class="biblio-item">
+          <div class="biblio-num">1</div>
+          <p>
+            Lorenz, Federico. <em>La Guerra de Malvinas. 1982-2012.</em>
+            Editorial Edhasa. Buenos Aires, 2006.
+          </p>
+        </li>
+        <li class="biblio-item">
+          <div class="biblio-num">2</div>
+          <p>
+            Vernet, Marcelo Luis. <em>Malvinas, Mi Casa. Vísperas, Diario de María Sáez de Vernet y Apostillas.</em>
+            Editorial Ministerio de Educación de la Nación. Buenos Aires, 2022.
+          </p>
+        </li>
+        <li class="biblio-item">
+          <div class="biblio-num">3</div>
+          <p>
+            Herrscher, Roberto. <em>Los Viajes del Penélope. Las tres vidas de un velero legendario.
+            De la exploración patagónica a la guerra de Malvinas.</em>
+            TusQuets Editores. Buenos Aires, 2022.
+          </p>
+        </li>
+        <li class="biblio-item">
+          <div class="biblio-num">4</div>
+          <p>
+            Fogwill. <em>Los Pichiciegos.</em>
+            Editorial Alfaguara. Narrativa Argentina. Buenos Aires, 2022.
+          </p>
+        </li>
+        <li class="biblio-item">
+          <div class="biblio-num">5</div>
+          <p>
+            Kohen, Marcelo; Rodríguez, Facundo.
+            <em>Las Malvinas entre el Derecho y la Historia. Refutación al folleto británico
+            "Más allá de la historia oficial. La verdadera historia de las Falklands/Malvinas".</em>
+          </p>
+        </li>
+      </ul>
+      <figure class="biblio-img">
+        <img src="images/islas_mapa.jpg" alt="Mapa de las Islas Malvinas" />
+        <figcaption>Islas Malvinas — territorio argentino.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════ -->
+<footer>
+  <div class="flag"><i class="fa-solid fa-flag"></i></div>
+  <p>
+    <strong>Malvinas — Valores para la Juventud Mendocina</strong><br/>
+    Ciclo Lectivo 2026 · Municipio de Las Heras, Mendoza
+  </p>
+  <p style="margin-top:.5rem;font-size:.8rem;">
+    "Las Malvinas son y serán argentinas."
+  </p>
+</footer>
+
+<button id="back-top" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- ══ JS ═══════════════════════════════════════════════ -->
+<script>
+  /* TABS EJE */
+  function mostrarEje(num, btn) {
+    document.querySelectorAll('.eje-panel').forEach(p => p.classList.remove('activo'));
+    document.querySelectorAll('.eje-tab').forEach(t => t.classList.remove('activo'));
+    document.getElementById('eje' + num).classList.add('activo');
+    btn.classList.add('activo');
+  }
+
+  /* HAMBURGER */
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  /* BACK TO TOP */
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    backTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+
+  /* ACTIVE NAV */
+  const sections = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navAs.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

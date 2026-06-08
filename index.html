@@ -157,6 +157,34 @@
       border-radius: 2px;
     }
 
+    /* ── LAS HERAS CREDIT BADGE ─────────────────────── */
+    .lh-credit {
+      display: inline-flex; align-items: center; gap: .65rem;
+      background: var(--azul-oscuro); border-radius: 0 6px 6px 0;
+      border-left: 4px solid #e67e22;
+      padding: .35rem 1rem .35rem .7rem;
+      margin-top: 1.2rem;
+    }
+    .lh-credit img { height: 30px; width: auto; }
+    .lh-credit span {
+      color: rgba(255,255,255,.8); font-size: .68rem;
+      font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+    }
+    /* Wrapper para centrar el badge en secciones con section-header */
+    .lh-credit-wrap { text-align: center; }
+    /* Versión clara: sobre fondo oscuro se muestra el logo directamente */
+    .lh-credit-dark {
+      display: flex; align-items: center; justify-content: center;
+      gap: .8rem; margin-top: 2.2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(230,126,34,.35);
+    }
+    .lh-credit-dark img { height: 44px; width: auto; opacity: .92; }
+    .lh-credit-dark span {
+      color: rgba(255,255,255,.65); font-size: .72rem;
+      font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    }
+
     /* ── INTRODUCCION ────────────────────────────────── */
     #introduccion { background: var(--crema); }
     .intro-grid {
@@ -165,6 +193,7 @@
     .intro-preguntas {
       background: var(--azul-oscuro); color: #fff;
       border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;
+      border-bottom: 3px solid #e67e22;
     }
     .intro-preguntas p {
       font-family: 'Lora', serif; font-style: italic;
@@ -346,7 +375,7 @@
     .ct-step.f4 .ct-step-num { background: #e74c3c; }
 
     /* — Timeline 2: Gantt / hitos — */
-    .lt-wrapper { background: white; border-radius: 16px; box-shadow: 0 8px 26px rgba(0,0,0,.1); overflow: hidden; margin-top: 3rem; }
+    .lt-wrapper { background: white; border-radius: 16px; box-shadow: 0 8px 26px rgba(0,0,0,.1); overflow: hidden; margin-top: 3rem; border-top: 4px solid #e67e22; }
     .lt-head { background: var(--azul-oscuro); color: white; text-align: center; padding: 1.1rem 1.5rem; }
     .lt-head h3 { color: white; margin-bottom: .15rem; font-size: 1.3rem; }
     .lt-head p  { color: rgba(255,255,255,.75); font-style: italic; font-size: .88rem; margin: 0; }
@@ -567,6 +596,12 @@
         De la Historia a Tu Realidad
       </p>
       <div class="divider"></div>
+      <div class="lh-credit-wrap">
+        <div class="lh-credit">
+          <img src="images/logo_las_heras.png" alt="Municipio de Las Heras" />
+          <span>Municipio de Las Heras</span>
+        </div>
+      </div>
     </div>
     <div class="intro-grid">
       <div>
@@ -958,6 +993,12 @@
       <span class="section-badge">Tema 3</span>
       <h2>El Gran Encuentro: Un Diálogo entre Generaciones</h2>
       <div class="divider"></div>
+      <div class="lh-credit-wrap">
+        <div class="lh-credit">
+          <img src="images/logo_las_heras.png" alt="Municipio de Las Heras" />
+          <span>Municipio de Las Heras</span>
+        </div>
+      </div>
     </div>
     <p style="max-width:730px;margin:0 auto 2.5rem;text-align:center;font-size:1rem;">
       Este encuentro culmina el ciclo de aprendizaje, pasando de la <em>recepción</em> de información
@@ -1040,6 +1081,10 @@
       del futuro de tu comunidad, honrando el legado de los veteranos con cada acto de
       responsabilidad y solidaridad.
     </p>
+    <div class="lh-credit-dark">
+      <img src="images/logo_las_heras.png" alt="Municipio de Las Heras" />
+      <span>Una iniciativa del Municipio de Las Heras, Mendoza</span>
+    </div>
   </div>
 </section>
 

@@ -416,15 +416,45 @@
     .biblio-img img { border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.2); }
     .biblio-img figcaption { text-align: center; font-style: italic; font-size: .8rem; color: #6b5740; margin-top: .6rem; }
 
+    /* ── LAS HERAS BANNER ─────────────────────────────── */
+    .lh-banner {
+      background: var(--azul-oscuro);
+      border-bottom: 4px solid #e67e22;
+      padding: .55rem 1.5rem;
+    }
+    .lh-banner-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center;
+    }
+    .lh-banner-inner img { height: 54px; width: auto; }
+
+    /* ── MURAL CAPTION ────────────────────────────────── */
+    .mural-caption {
+      font-size: .78rem; font-style: italic;
+      color: #6b5740; text-align: center;
+      margin-top: .55rem; line-height: 1.4;
+    }
+
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
       background: var(--azul-oscuro); color: rgba(255,255,255,.7);
-      text-align: center; padding: 2rem 1.5rem;
+      padding: 2rem 1.5rem;
+      border-top: 4px solid #e67e22;
       font-size: .85rem;
     }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; gap: 2.5rem;
+    }
+    .footer-logo { flex-shrink: 0; }
+    .footer-logo img { height: 76px; width: auto; }
+    .footer-body { flex: 1; }
     footer strong { color: #fff; }
     footer .flag { font-size: 1.4rem; margin-bottom: .4rem; }
     footer .flag i { color: var(--azul-claro); }
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
 
     /* ── BTN SCROLL TOP ──────────────────────────────── */
     #back-top {
@@ -484,6 +514,13 @@
   </div>
 </nav>
 
+<!-- ══ LAS HERAS BANNER ════════════════════════════════ -->
+<div class="lh-banner">
+  <div class="lh-banner-inner">
+    <img src="images/logo_las_heras.png" alt="Municipio de Las Heras, Mendoza" />
+  </div>
+</div>
+
 <!-- ══ HERO ════════════════════════════════════════════ -->
 <section id="inicio">
   <div class="hero-bg"></div>
@@ -500,7 +537,7 @@
       <a href="#introduccion" class="btn-primary">Comenzar la Guía →</a>
     </div>
     <div class="hero-image">
-      <img src="images/cover_island.jpg" alt="Las Malvinas representadas como un libro flotante sobre el mar" />
+      <img src="images/mural01.jpg" alt="Mural en honor a veteranos y caídos en Malvinas — Plazoleta Aballay, Barrio Infanta" />
     </div>
   </div>
 </section>
@@ -543,8 +580,8 @@
         </div>
       </div>
       <figure class="intro-img">
-        <img src="images/intro_faro.jpg" alt="Faro y pingüinos en las Islas Malvinas" />
-        <figcaption>Las Islas Malvinas: un faro en nuestra memoria colectiva.</figcaption>
+        <img src="images/mural02.jpg" alt="Mural de soldados con buque hospital — Plazoleta Aballay, Barrio Infanta" />
+        <figcaption class="mural-caption">Mural de la Plazoleta Aballay, Barrio Infanta.<br/>Muralista Nicolás Loüet en conjunto con jóvenes lasherinos</figcaption>
       </figure>
     </div>
   </div>
@@ -762,8 +799,8 @@
         </div>
       </div>
       <figure class="eje-imagen">
-        <img src="images/tema2_historia.jpg" alt="Bocetos históricos de naves de guerra, 1914" />
-        <figcaption>Bocetos históricos de la guerra — los hechos del pasado son el punto de partida para reflexionar.</figcaption>
+        <img src="images/mural03.jpg" alt="Mural Operación Rosario — figuras en el agua, Plazoleta Aballay" />
+        <figcaption class="mural-caption">Mural de la Plazoleta Aballay, Barrio Infanta.<br/>Muralista Nicolás Loüet en conjunto con jóvenes lasherinos</figcaption>
       </figure>
     </div><!-- /eje1 -->
 
@@ -837,8 +874,8 @@
         </div>
       </div>
       <figure class="eje-imagen">
-        <img src="images/tema2_bandera.jpg" alt="Pintura artística con soldados portando la bandera argentina" />
-        <figcaption>La expresión artística transforma la memoria en un legado vivo para las generaciones futuras.</figcaption>
+        <img src="images/mural04.jpg" alt="Mural Hola Ma — soldado llamando y reencuentro familiar, Plazoleta Aballay" />
+        <figcaption class="mural-caption">Mural de la Plazoleta Aballay, Barrio Infanta.<br/>Muralista Nicolás Loüet en conjunto con jóvenes lasherinos</figcaption>
       </figure>
     </div><!-- /eje2 -->
 
@@ -958,8 +995,8 @@
         </li>
       </ul>
       <figure class="tema3-img">
-        <img src="images/poster_malvinas.jpg" alt="Poster artístico con el mapa de Malvinas y la bandera argentina" />
-        <figcaption>"Tras su manto de neblinas no las hemos de olvidar. ¡Las Malvinas, Argentinas! Clama el viento y ruge el mar."</figcaption>
+        <img src="images/mural05.jpg" alt="Mural con cascos militares y cruces en homenaje a los caídos — Plazoleta Aballay" />
+        <figcaption class="mural-caption">Mural de la Plazoleta Aballay, Barrio Infanta.<br/>Muralista Nicolás Loüet en conjunto con jóvenes lasherinos</figcaption>
       </figure>
     </div>
   </div>
@@ -1194,14 +1231,21 @@
 
 <!-- ══ FOOTER ══════════════════════════════════════════ -->
 <footer>
-  <div class="flag"><i class="fa-solid fa-flag"></i></div>
-  <p>
-    <strong>Malvinas — Valores para la Juventud Mendocina</strong><br/>
-    Ciclo Lectivo 2026 · Municipio de Las Heras, Mendoza
-  </p>
-  <p style="margin-top:.5rem;font-size:.8rem;">
-    "Las Malvinas son y serán argentinas."
-  </p>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/logo_las_heras.png" alt="Municipio de Las Heras, Mendoza" />
+    </div>
+    <div class="footer-body">
+      <div class="flag"><i class="fa-solid fa-flag"></i></div>
+      <p>
+        <strong>Malvinas — Valores para la Juventud Mendocina</strong><br/>
+        Ciclo Lectivo 2026 · Municipio de Las Heras, Mendoza
+      </p>
+      <p style="margin-top:.5rem;font-size:.8rem;">
+        "Las Malvinas son y serán argentinas."
+      </p>
+    </div>
+  </div>
 </footer>
 
 <button id="back-top" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>

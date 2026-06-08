@@ -160,28 +160,31 @@
     /* ── LAS HERAS CREDIT BADGE ─────────────────────── */
     .lh-credit {
       display: inline-flex; align-items: center; gap: .65rem;
-      background: var(--azul-oscuro); border-radius: 0 6px 6px 0;
-      border-left: 4px solid #e67e22;
-      padding: .35rem 1rem .35rem .7rem;
+      background: #e67e22; border-radius: 6px;
+      padding: .35rem 1rem .35rem .8rem;
       margin-top: 1.2rem;
     }
     .lh-credit img { height: 30px; width: auto; }
     .lh-credit span {
-      color: rgba(255,255,255,.8); font-size: .68rem;
+      color: #fff; font-size: .68rem;
       font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
     }
     /* Wrapper para centrar el badge en secciones con section-header */
     .lh-credit-wrap { text-align: center; }
-    /* Versión clara: sobre fondo oscuro se muestra el logo directamente */
+    /* Versión sobre fondo oscuro (Conclusión) */
     .lh-credit-dark {
       display: flex; align-items: center; justify-content: center;
       gap: .8rem; margin-top: 2.2rem;
       padding-top: 1.5rem;
       border-top: 1px solid rgba(230,126,34,.35);
     }
-    .lh-credit-dark img { height: 44px; width: auto; opacity: .92; }
+    .lh-credit-dark .lh-logo-wrap {
+      background: #e67e22; border-radius: 8px;
+      padding: .35rem .7rem; display: flex; align-items: center;
+    }
+    .lh-credit-dark .lh-logo-wrap img { height: 40px; width: auto; }
     .lh-credit-dark span {
-      color: rgba(255,255,255,.65); font-size: .72rem;
+      color: rgba(255,255,255,.75); font-size: .72rem;
       font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
     }
 
@@ -460,8 +463,8 @@
 
     /* ── LAS HERAS BANNER ─────────────────────────────── */
     .lh-banner {
-      background: var(--azul-oscuro);
-      border-bottom: 4px solid #e67e22;
+      background: #e67e22;
+      border-bottom: 4px solid #c8600a;
       padding: .55rem 1.5rem;
     }
     .lh-banner-inner {
@@ -488,8 +491,12 @@
       max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; gap: 2.5rem;
     }
-    .footer-logo { flex-shrink: 0; }
-    .footer-logo img { height: 76px; width: auto; }
+    .footer-logo {
+      flex-shrink: 0; background: #e67e22;
+      border-radius: 10px; padding: .5rem 1rem;
+      display: flex; align-items: center;
+    }
+    .footer-logo img { height: 68px; width: auto; }
     .footer-body { flex: 1; text-align: center; }
     footer strong { color: #fff; }
     @media (max-width: 600px) {
@@ -511,6 +518,14 @@
     @media (max-width: 768px) {
       html, body { overflow-x: hidden; }
       .nav-yt { display: none; }
+      .nav-yt-mobile {
+        display: flex; align-items: center; justify-content: center; gap: .45rem;
+        background: #ff0000; color: #fff;
+        font-size: .82rem; font-weight: 700;
+        padding: .6rem 1rem; border-radius: 8px;
+        margin: .5rem 0 .3rem; text-decoration: none;
+      }
+      .nav-yt-mobile i { font-size: 1rem; }
       #menu-toggle { display: block; }
       .nav-links {
         display: none; flex-direction: column;
@@ -558,6 +573,11 @@
       <li><a href="#conclusion">Conclusión</a></li>
       <li><a href="#cronograma">Cronograma</a></li>
       <li><a href="#bibliografia">Bibliografía</a></li>
+      <li>
+        <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt-mobile">
+          <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
+        </a>
+      </li>
     </ul>
     <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt">
       <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
@@ -568,7 +588,7 @@
 <!-- ══ LAS HERAS BANNER ════════════════════════════════ -->
 <div class="lh-banner">
   <div class="lh-banner-inner">
-    <img src="images/logo_las_heras.png" alt="Municipio de Las Heras, Mendoza" />
+    <img src="images/logo_las_heras_white.png" alt="Municipio de Las Heras, Mendoza" />
   </div>
 </div>
 
@@ -605,7 +625,7 @@
       <div class="divider"></div>
       <div class="lh-credit-wrap">
         <div class="lh-credit">
-          <img src="images/logo_las_heras.png" alt="Municipio de Las Heras" />
+          <img src="images/logo_las_heras_white.png" alt="Municipio de Las Heras" />
           <span>Municipio de Las Heras</span>
         </div>
       </div>
@@ -1002,7 +1022,7 @@
       <div class="divider"></div>
       <div class="lh-credit-wrap">
         <div class="lh-credit">
-          <img src="images/logo_las_heras.png" alt="Municipio de Las Heras" />
+          <img src="images/logo_las_heras_white.png" alt="Municipio de Las Heras" />
           <span>Municipio de Las Heras</span>
         </div>
       </div>
@@ -1089,7 +1109,9 @@
       responsabilidad y solidaridad.
     </p>
     <div class="lh-credit-dark">
-      <img src="images/logo_las_heras.png" alt="Municipio de Las Heras" />
+      <div class="lh-logo-wrap">
+        <img src="images/logo_las_heras_white.png" alt="Municipio de Las Heras" />
+      </div>
       <span>Una iniciativa del Municipio de Las Heras, Mendoza</span>
     </div>
   </div>
@@ -1295,7 +1317,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="images/logo_las_heras.png" alt="Municipio de Las Heras, Mendoza" />
+      <img src="images/logo_las_heras_white.png" alt="Municipio de Las Heras, Mendoza" />
     </div>
     <div class="footer-body">
       <p>

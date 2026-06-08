@@ -57,6 +57,17 @@
       display: flex; align-items: center; gap: .5rem;
     }
     .nav-brand img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .nav-yt {
+      display: flex; align-items: center; gap: .45rem;
+      background: #ff0000; color: #fff;
+      font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+      padding: .42rem 1rem; border-radius: 20px;
+      white-space: nowrap;
+      transition: background .2s, transform .2s;
+      flex-shrink: 0;
+    }
+    .nav-yt:hover { background: #cc0000; transform: translateY(-1px); }
+    .nav-yt i { font-size: 1rem; }
     .nav-links {
       display: flex; gap: .15rem; list-style: none; flex-wrap: wrap;
     }
@@ -469,6 +480,7 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
+      .nav-yt { display: none; }
       #menu-toggle { display: block; }
       .nav-links {
         display: none; flex-direction: column;
@@ -498,6 +510,9 @@
       <img src="images/islas_mapa.jpg" alt="Mapa Malvinas" />
       Malvinas 2026
     </div>
+    <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt">
+      <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
+    </a>
     <button id="menu-toggle" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>

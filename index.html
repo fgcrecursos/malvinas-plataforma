@@ -235,7 +235,7 @@
     }
     .valor-ejemplo strong { color: #7a4e1a; }
     .tema1-imagen { margin-top: 3rem; text-align: center; }
-    .tema1-imagen img { max-width: 420px; margin: 0 auto; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,.25); }
+    .tema1-imagen img { max-width: min(420px, 100%); margin: 0 auto; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,.25); }
     .tema1-imagen figcaption { font-style: italic; font-size: .85rem; color: #6b5740; margin-top: .6rem; }
 
     /* ── TEMA 2 ──────────────────────────────────────── */
@@ -290,7 +290,7 @@
     .tag-valor   { background: rgba(74,142,194,.15); color: var(--azul-oscuro); border: 1px solid var(--azul-claro); }
     .tag-producto{ background: rgba(200,152,58,.15); color: #7a4e1a; border: 1px solid var(--dorado); }
     .eje-imagen { text-align: center; margin-top: 2.5rem; }
-    .eje-imagen img { max-width: 480px; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+    .eje-imagen img { max-width: min(480px, 100%); margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
     .eje-imagen figcaption { font-style: italic; font-size: .85rem; color: #6b5740; margin-top: .6rem; }
 
     /* ── TEMA 3 ──────────────────────────────────────── */
@@ -509,24 +509,31 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
+      html, body { overflow-x: hidden; }
       .nav-yt { display: none; }
       #menu-toggle { display: block; }
       .nav-links {
         display: none; flex-direction: column;
         position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--azul-oscuro); padding: 1rem;
+        background: var(--azul-oscuro); padding: 1rem; z-index: 999;
       }
       .nav-links.open { display: flex; }
       #navbar { position: relative; }
       .nav-inner { position: relative; }
-      .hero-content { flex-direction: column; text-align: center; padding-bottom: 12rem; }
-      .hero-image { flex: none; width: 220px; margin: 0 auto; }
+      .hero-content { flex-direction: column; text-align: center; padding-bottom: 10rem; }
+      .hero-image { flex: none; width: 100%; max-width: 300px; margin: 1.5rem auto 0; }
+      .hero-image img { transform: none; }
       .intro-grid, .tema3-grid, .biblio-grid { grid-template-columns: 1fr; }
       .intro-img { position: static; }
       .valores-grid { grid-template-columns: 1fr; }
       .eje-header { flex-direction: column; }
       .eje-num { font-size: 2rem; }
+      .actividades-grid { grid-template-columns: 1fr; }
+      .ejes-tabs { flex-direction: column; align-items: stretch; }
+      .eje-tab { text-align: center; }
       section { padding: 3rem 1rem; }
+      .lh-credit-dark { flex-direction: column; gap: .5rem; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 1rem; }
     }
   </style>
 </head>

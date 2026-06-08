@@ -47,39 +47,41 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.4);
     }
     .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; gap: 1.2rem;
       padding: .6rem 1.5rem;
     }
     .nav-brand {
       font-family: 'Lora', serif; color: #fff;
-      font-size: 1rem; font-weight: 700;
+      font-size: .95rem; font-weight: 700;
       display: flex; align-items: center; gap: .5rem;
-    }
-    .nav-brand img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
-    .nav-yt {
-      display: flex; align-items: center; gap: .45rem;
-      background: #ff0000; color: #fff;
-      font-size: .78rem; font-weight: 700; letter-spacing: .03em;
-      padding: .42rem 1rem; border-radius: 20px;
-      white-space: nowrap;
-      transition: background .2s, transform .2s;
       flex-shrink: 0;
     }
-    .nav-yt:hover { background: #cc0000; transform: translateY(-1px); }
-    .nav-yt i { font-size: 1rem; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
     .nav-links {
-      display: flex; gap: .15rem; list-style: none; flex-wrap: wrap;
+      display: flex; gap: .1rem; list-style: none;
+      flex: 1; justify-content: center; flex-wrap: nowrap;
     }
     .nav-links a {
       color: rgba(255,255,255,.85);
-      font-size: .8rem; font-weight: 600; letter-spacing: .03em;
-      padding: .45rem .75rem; border-radius: 4px;
+      font-size: .75rem; font-weight: 600; letter-spacing: .02em;
+      padding: .4rem .6rem; border-radius: 4px;
       transition: background .2s, color .2s;
+      white-space: nowrap;
     }
     .nav-links a:hover, .nav-links a.active {
       background: var(--azul-claro); color: #fff;
     }
+    .nav-yt {
+      display: flex; align-items: center; gap: .4rem;
+      background: #ff0000; color: #fff;
+      font-size: .75rem; font-weight: 700; letter-spacing: .02em;
+      padding: .4rem .9rem; border-radius: 20px;
+      white-space: nowrap; flex-shrink: 0;
+      transition: background .2s, transform .2s;
+    }
+    .nav-yt:hover { background: #cc0000; transform: translateY(-1px); }
+    .nav-yt i { font-size: .95rem; }
     #menu-toggle { display: none; cursor: pointer; background: none; border: none; }
     #menu-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
 
@@ -508,9 +510,6 @@
       <img src="images/islas_mapa.jpg" alt="Mapa Malvinas" />
       Malvinas 2026
     </div>
-    <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt">
-      <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
-    </a>
     <button id="menu-toggle" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
@@ -524,6 +523,9 @@
       <li><a href="#cronograma">Cronograma</a></li>
       <li><a href="#bibliografia">Bibliografía</a></li>
     </ul>
+    <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt">
+      <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
+    </a>
   </div>
 </nav>
 

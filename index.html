@@ -72,16 +72,6 @@
     .nav-links a:hover, .nav-links a.active {
       background: var(--azul-claro); color: #fff;
     }
-    .nav-yt {
-      display: flex; align-items: center; gap: .4rem;
-      background: #ff0000; color: #fff;
-      font-size: .75rem; font-weight: 700; letter-spacing: .02em;
-      padding: .4rem .9rem; border-radius: 20px;
-      white-space: nowrap; flex-shrink: 0;
-      transition: background .2s, transform .2s;
-    }
-    .nav-yt:hover { background: #cc0000; transform: translateY(-1px); }
-    .nav-yt i { font-size: .95rem; }
     #menu-toggle { display: none; cursor: pointer; background: none; border: none; }
     #menu-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
 
@@ -579,15 +569,6 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
-      .nav-yt { display: none; }
-      .nav-yt-mobile {
-        display: flex; align-items: center; justify-content: center; gap: .45rem;
-        background: #ff0000; color: #fff;
-        font-size: .82rem; font-weight: 700;
-        padding: .6rem 1rem; border-radius: 8px;
-        margin: .5rem 0 .3rem; text-decoration: none;
-      }
-      .nav-yt-mobile i { font-size: 1rem; }
       #menu-toggle { display: block; }
       .nav-links {
         display: none; flex-direction: column;
@@ -641,15 +622,7 @@
       <li><a href="#conclusion">Conclusión</a></li>
       <li><a href="#cronograma">Cronograma</a></li>
       <li><a href="#bibliografia">Bibliografía</a></li>
-      <li>
-        <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt-mobile">
-          <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
-        </a>
-      </li>
     </ul>
-    <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt">
-      <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
-    </a>
   </div>
 </nav>
 

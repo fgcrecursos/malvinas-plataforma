@@ -513,6 +513,70 @@
     }
     #back-top:hover { background: var(--azul); transform: translateY(-2px); }
 
+    /* ── BTN INSTRUCTIVO (FLOTANTE) ──────────────────── */
+    #btn-instructivo {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 950;
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: linear-gradient(135deg, #e67e22, #c8600a);
+      color: #fff; border: 2px solid #fff;
+      font-family: 'Open Sans', sans-serif; font-weight: 700;
+      font-size: .9rem; letter-spacing: .03em;
+      padding: .8rem 1.4rem; border-radius: 40px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(230,126,34,.55);
+      animation: instr-pulse 2.2s infinite;
+      transition: transform .2s, box-shadow .2s;
+    }
+    #btn-instructivo:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 28px rgba(230,126,34,.7);
+      animation-play-state: paused;
+    }
+    #btn-instructivo .instr-icon {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #fff; color: #e67e22;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; flex-shrink: 0;
+    }
+    @keyframes instr-pulse {
+      0%   { box-shadow: 0 6px 20px rgba(230,126,34,.55), 0 0 0 0 rgba(230,126,34,.5); }
+      70%  { box-shadow: 0 6px 20px rgba(230,126,34,.55), 0 0 0 14px rgba(230,126,34,0); }
+      100% { box-shadow: 0 6px 20px rgba(230,126,34,.55), 0 0 0 0 rgba(230,126,34,0); }
+    }
+
+    /* ── MODAL INSTRUCTIVO ───────────────────────────── */
+    #modal-instructivo {
+      position: fixed; inset: 0; z-index: 2000;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(15,28,50,.85); padding: 1.5rem;
+      animation: modalFade .25s ease;
+    }
+    #modal-instructivo.abierto { display: flex; }
+    @keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
+    .modal-box {
+      position: relative; width: 100%; max-width: 880px;
+      background: #000; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      border: 3px solid #e67e22;
+    }
+    .modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(135deg, #e67e22, #c8600a);
+      color: #fff; padding: .7rem 1.2rem;
+    }
+    .modal-header h3 {
+      color: #fff; font-size: 1.1rem; margin: 0;
+      display: flex; align-items: center; gap: .55rem;
+    }
+    .modal-close {
+      background: rgba(255,255,255,.2); color: #fff; border: none;
+      width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,.35); }
+    .modal-box video { width: 100%; display: block; background: #000; max-height: 78vh; }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-yt { display: none; }
@@ -547,6 +611,12 @@
       section { padding: 3rem 1rem; }
       .lh-credit-dark { flex-direction: column; gap: .5rem; }
       .footer-inner { flex-direction: column; text-align: center; gap: 1rem; }
+      #btn-instructivo {
+        bottom: 1.2rem; left: 1.2rem;
+        font-size: .8rem; padding: .65rem 1.1rem;
+      }
+      #back-top { bottom: 1.2rem; right: 1.2rem; }
+      .modal-header h3 { font-size: .95rem; }
     }
   </style>
 </head>
@@ -1331,6 +1401,26 @@
 
 <button id="back-top" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 
+<!-- ══ BOTÓN FLOTANTE INSTRUCTIVO ══════════════════════ -->
+<button id="btn-instructivo" onclick="abrirInstructivo()" title="Ver instructivo">
+  <span class="instr-icon"><i class="fa-solid fa-play"></i></span>
+  Instructivo
+</button>
+
+<!-- ══ MODAL INSTRUCTIVO ═══════════════════════════════ -->
+<div id="modal-instructivo" onclick="cerrarInstructivo(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3><i class="fa-solid fa-circle-play"></i> Instructivo</h3>
+      <button class="modal-close" onclick="cerrarInstructivo()" aria-label="Cerrar">&times;</button>
+    </div>
+    <video id="video-instructivo" controls preload="metadata" playsinline>
+      <source src="videos/instructivo.mp4" type="video/mp4" />
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </div>
+</div>
+
 <!-- ══ JS ═══════════════════════════════════════════════ -->
 <script>
   /* TABS EJE */
@@ -1340,6 +1430,25 @@
     document.getElementById('eje' + num).classList.add('activo');
     btn.classList.add('activo');
   }
+
+  /* MODAL INSTRUCTIVO */
+  const modalInstr = document.getElementById('modal-instructivo');
+  const videoInstr = document.getElementById('video-instructivo');
+  function abrirInstructivo() {
+    modalInstr.classList.add('abierto');
+    document.body.style.overflow = 'hidden';
+    videoInstr.play().catch(() => {});
+  }
+  function cerrarInstructivo(e) {
+    // Si se hace click dentro de la caja del video, no cerrar
+    if (e && e.target.closest && e.target.closest('.modal-box') && e.type === 'click' && !e.target.classList.contains('modal-close')) return;
+    modalInstr.classList.remove('abierto');
+    document.body.style.overflow = '';
+    videoInstr.pause();
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalInstr.classList.contains('abierto')) cerrarInstructivo();
+  });
 
   /* HAMBURGER */
   const toggle = document.getElementById('menu-toggle');

@@ -569,6 +569,14 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
+      .nav-yt-mobile {
+        display: flex; align-items: center; justify-content: center; gap: .45rem;
+        background: #ff0000; color: #fff;
+        font-size: .82rem; font-weight: 700;
+        padding: .6rem 1rem; border-radius: 8px;
+        margin: .5rem 0 .3rem; text-decoration: none;
+      }
+      .nav-yt-mobile i { font-size: 1rem; }
       #menu-toggle { display: block; }
       .nav-links {
         display: none; flex-direction: column;
@@ -622,6 +630,11 @@
       <li><a href="#conclusion">Conclusión</a></li>
       <li><a href="#cronograma">Cronograma</a></li>
       <li><a href="#bibliografia">Bibliografía</a></li>
+      <li>
+        <a href="https://www.youtube.com/@MALVINASvalores" target="_blank" rel="noopener" class="nav-yt-mobile">
+          <i class="fa-brands fa-youtube"></i> Entrevistas a Veteranos
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
